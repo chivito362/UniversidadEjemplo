@@ -13,28 +13,49 @@ import java.time.LocalDate;
  */
 public class Alumno {
     private int idAlumno;
+    private int dni;
     private String apellido;
     private String nombre;
-    private LocalDate gechaNac;
+    private LocalDate FechaNac;
     private boolean estado;
 
     public Alumno() {
     }
 
-    public Alumno(int idAlumno, String apellido, String nombre, LocalDate gechaNac, boolean estado) {
+    public Alumno(int idAlumno, int dni, String apellido, String nombre, LocalDate FechaNac, boolean estado) {
         this.idAlumno = idAlumno;
+        this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.gechaNac = gechaNac;
+        this.FechaNac = FechaNac;
         this.estado = estado;
     }
 
-    public Alumno(String apellido, String nombre, LocalDate gechaNac, boolean estado) {
+    public Alumno(int dni, String apellido, String nombre, LocalDate FechaNac, boolean estado) {
+        this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.gechaNac = gechaNac;
+        this.FechaNac = FechaNac;
         this.estado = estado;
     }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public LocalDate getFechaNac() {
+        return FechaNac;
+    }
+
+    public void setFechaNac(LocalDate FechaNac) {
+        this.FechaNac = FechaNac;
+    }
+
+    
 
     public int getIdAlumno() {
         return idAlumno;
@@ -60,12 +81,12 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public LocalDate getGechaNac() {
-        return gechaNac;
+    public LocalDate getFechaNacimiento() {
+        return FechaNac;
     }
 
-    public void setGechaNac(LocalDate gechaNac) {
-        this.gechaNac = gechaNac;
+    public void setFechaNacimiento(LocalDate gechaNac) {
+        this.FechaNac = gechaNac;
     }
 
     public boolean isEstado() {
