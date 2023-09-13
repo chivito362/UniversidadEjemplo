@@ -46,15 +46,6 @@ public class Alumno {
     public void setDni(int dni) {
         this.dni = dni;
     }
-
-    public LocalDate getFechaNac() {
-        return FechaNac;
-    }
-
-    public void setFechaNac(LocalDate FechaNac) {
-        this.FechaNac = FechaNac;
-    }
-
     
 
     public int getIdAlumno() {
