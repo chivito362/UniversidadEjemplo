@@ -17,7 +17,6 @@ import universidadejemplo.Entidades.Alumno;
 
 
 public class AgregarAlumnos extends javax.swing.JFrame {
-    private AlumnoData aludata;
     public AgregarAlumnos() {
         initComponents();
         cargarCb();
@@ -73,7 +72,6 @@ public class AgregarAlumnos extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/buscar.png"))); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -189,7 +187,7 @@ public class AgregarAlumnos extends javax.swing.JFrame {
         }else{
             estado=false;
         }
-        
+        AlumnoData aludata=new AlumnoData();
         Alumno alumno=new Alumno();
         alumno.setNombre(nombre);
         alumno.setApellido(apellido);
