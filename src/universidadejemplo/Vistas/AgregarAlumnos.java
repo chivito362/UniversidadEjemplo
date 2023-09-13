@@ -17,7 +17,7 @@ import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.Alumno;
 
 
-public class AgregarAlumnos extends javax.swing.JFrame {
+public class AgregarAlumnos extends javax.swing.JInternalFrame {
     public AgregarAlumnos() {
         initComponents();
         cargarCb();
