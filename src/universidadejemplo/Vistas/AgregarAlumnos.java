@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,12 +38,12 @@ public class AgregarAlumnos extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         txtDni = new javax.swing.JTextField();
         cbEstado = new javax.swing.JComboBox<>();
-        btnAgregar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jcalendario = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,10 +59,10 @@ public class AgregarAlumnos extends javax.swing.JFrame {
 
         jLabel6.setText("Estado");
 
-        btnAgregar.setText("Guardar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -78,9 +79,19 @@ public class AgregarAlumnos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Nuevo");
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,12 +114,12 @@ public class AgregarAlumnos extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnNuevo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)))))
+                                        .addComponent(btnEliminar)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgregar)
+                            .addComponent(btnGuardar)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                                 .addComponent(txtNombre)
@@ -150,9 +161,9 @@ public class AgregarAlumnos extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalir)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(btnAgregar))
+                    .addComponent(btnNuevo)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnGuardar))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -172,7 +183,7 @@ public class AgregarAlumnos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String nombre,apellido;
         LocalDate fecha;
         boolean estado;
@@ -196,24 +207,59 @@ public class AgregarAlumnos extends javax.swing.JFrame {
         alumno.setEstado(estado);
         aludata.guardarAlumno(alumno);
         
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-         
+        if (!txtDni.getText().equalsIgnoreCase("")) {
+            try{
+            AlumnoData aludata = new AlumnoData();
+            Alumno alumno = aludata.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText()));
+            if (alumno != null) {
+                txtApellido.setText(alumno.getApellido());
+                txtNombre.setText(alumno.getNombre());
+                LocalDate fecha = alumno.getFechaNacimiento();
+                Date date = Date.from(fecha.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                jcalendario.setDate(date);
+                boolean estado = alumno.isEstado();
+                if (estado = true) {
+                    cbEstado.setSelectedItem("Activo");
+                } else {
+                    cbEstado.setSelectedItem("Inactivo");
+                }
+            }
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Solo puede Ingresar numeros en el campo DNI");
+        }
+        }
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        AlumnoData aludata=new AlumnoData();
+        
+        aludata.eliminarAlumno(aludata.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText())).getIdAlumno());
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        txtApellido.setText("");
+        txtDni.setText("");
+        txtNombre.setText("");
+        cbEstado.setSelectedItem("Activo");
+        jcalendario.setDate(null);
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
