@@ -239,17 +239,25 @@ public class AgregarAlumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        AlumnoData aludata=new AlumnoData();
-        
-        aludata.eliminarAlumno(aludata.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText())).getIdAlumno());
+        if (!txtDni.getText().equalsIgnoreCase("")) {
+            try {
+                AlumnoData aludata = new AlumnoData();
+                int dni = Integer.parseInt(txtDni.getText());
+                if (aludata.buscarAlumnoPorDni(dni) != null) {
+                    int opc = JOptionPane.showConfirmDialog(null, "Esta por eliminar el alumno con dni: " + dni + " Esta seguro??");
+                    if (opc == 0) {
+                        aludata.eliminarAlumno(aludata.buscarAlumnoPorDni(dni).getIdAlumno());
+                        camposVacios();
+                    }
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Solo puede Ingresar numeros en el campo DNI");
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        txtApellido.setText("");
-        txtDni.setText("");
-        txtNombre.setText("");
-        cbEstado.setSelectedItem("Activo");
-        jcalendario.setDate(null);
+        camposVacios();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
 
@@ -283,5 +291,12 @@ public class AgregarAlumnos extends javax.swing.JFrame {
             return fecha;
         }
         return null;
+    }
+    private void camposVacios(){
+        txtApellido.setText("");
+        txtDni.setText("");
+        txtNombre.setText("");
+        cbEstado.setSelectedItem("Activo");
+        jcalendario.setDate(null);
     }
 }
