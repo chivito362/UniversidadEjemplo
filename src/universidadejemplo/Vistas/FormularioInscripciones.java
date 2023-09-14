@@ -76,7 +76,6 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un Alumno:");
 
-        jCListadoAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCListadoAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCListadoAlumnosActionPerformed(evt);
@@ -186,7 +185,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAnularInscripcion;
     private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnSalirFInscripciones;
-    private javax.swing.JComboBox<String> jCListadoAlumnos;
+    private javax.swing.JComboBox<Alumno> jCListadoAlumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -203,6 +202,14 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         modelo.addColumn("Materia");
         modelo.addColumn("Nota");
         jTablaMaterias.setModel(modelo);
+    }
+    
+    private void cargarComboBox () {
+        AlumnoData aluData = new AlumnoData();
+        List<Alumno> alumnos = aluData.listarAlumnos();
+        for (Alumno alumno : alumnos) {
+            jCListadoAlumnos.addItem(alumno);
+        }
     }
 }
 
