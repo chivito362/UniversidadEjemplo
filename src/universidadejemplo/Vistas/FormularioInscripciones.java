@@ -15,7 +15,7 @@ import universidadejemplo.Entidades.Alumno;
  *
  * @author Joha
  */
-public class FormularioInscripciones extends javax.swing.JFrame {
+public class FormularioInscripciones extends javax.swing.JInternalFrame {
    
     private DefaultTableModel modelo = new DefaultTableModel ();
         
@@ -137,7 +137,7 @@ public class FormularioInscripciones extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(48, 48, 48)
                         .addComponent(jCListadoAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 44, Short.MAX_VALUE)))
+                        .addGap(0, 27, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
