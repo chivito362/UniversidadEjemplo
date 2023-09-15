@@ -5,12 +5,10 @@
 package universidadejemplo.AccesoADatos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -29,7 +27,7 @@ public class MateriaData {
     }
   
     public void guardarMateria(Materia materia){
-        String sql="INSERT INTO materia (nombre,año,estado) Values (?,?,?,?)";
+        String sql="INSERT INTO materia (nombre,año,estado) Values (?,?,?)";
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
