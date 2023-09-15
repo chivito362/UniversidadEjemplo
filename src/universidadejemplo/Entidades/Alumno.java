@@ -6,6 +6,8 @@
 package universidadejemplo.Entidades;
 
 import java.time.LocalDate;
+import javax.swing.JInternalFrame;
+
 
 /**
  *
@@ -87,6 +89,13 @@ public class Alumno {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+//    private void crearVentanas(JInternalFrame fi){         
+//        escritorio.removeAll();
+//        escritorio.repaint();
+//        fi.setVisible(true);
+//        fi.setSize(escritorio.getWidth(), escritorio.getHeight());
+//        escritorio.add(fi);
+//        escritorio.moveToFront(fi);
+//}
     
 }
