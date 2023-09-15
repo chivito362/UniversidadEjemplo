@@ -80,6 +80,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.add(btnManejoInscrip);
 
         btnManipulacionNotas.setText("Manipulación de Notas");
+        btnManipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManipulacionNotasActionPerformed(evt);
+            }
+        });
         jMenu3.add(btnManipulacionNotas);
 
         jMenuBar1.add(jMenu3);
@@ -124,6 +129,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         AgregarAlumnos fi=new AgregarAlumnos();
         crearVentanas(fi);
     }//GEN-LAST:event_btnFAlumnoActionPerformed
+
+    private void btnManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManipulacionNotasActionPerformed
+        CargaDeNotas fi=new CargaDeNotas();
+        crearVentanas(fi);
+    }//GEN-LAST:event_btnManipulacionNotasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAlumXMaterias;

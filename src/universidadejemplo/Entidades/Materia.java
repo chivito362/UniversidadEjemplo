@@ -12,24 +12,36 @@ package universidadejemplo.Entidades;
 public class Materia {
     private int idMateria;
     private String nombre;
-    private int anioMateria;
+    private int anioMateria,nota;
     private boolean estado;
 
     public Materia() {
     }
 
-    public Materia(int idMateria, String nombre, int anioMateria, boolean estado) {
+    public Materia(int idMateria, String nombre, int anioMateria, int nota, boolean estado) {
         this.idMateria = idMateria;
         this.nombre = nombre;
         this.anioMateria = anioMateria;
+        this.nota = nota;
         this.estado = estado;
     }
 
-    public Materia(String nombre, int anioMateria, boolean estado) {
+    public Materia(String nombre, int anioMateria, int nota, boolean estado) {
         this.nombre = nombre;
         this.anioMateria = anioMateria;
+        this.nota = nota;
         this.estado = estado;
     }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+
+    
 
     public int getIdMateria() {
         return idMateria;
