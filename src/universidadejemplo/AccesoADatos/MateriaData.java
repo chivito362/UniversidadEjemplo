@@ -29,7 +29,7 @@ public class MateriaData {
     }
   
     public void guardarMateria(Materia materia){
-        String sql="INSERT INTO materia (nombre,año,estado) Values (?,?,?,?)";
+        String sql="INSERT INTO materia (nombre,año,estado) Values (?,?,?)";
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
@@ -38,7 +38,7 @@ public class MateriaData {
             ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
             if(rs.next()){
-                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setIdMateria(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Materia añadida con exito.");
             }
             ps.close();

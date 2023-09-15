@@ -58,6 +58,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Materia");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         btnFmateria.setText("Formulario Materia");
         btnFmateria.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +131,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnManejoInscripActionPerformed
 
     private void btnFmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFmateriaActionPerformed
-       
+       AgregarMateria fi=new AgregarMateria();
+            crearVentanas(fi);
     }//GEN-LAST:event_btnFmateriaActionPerformed
 
     private void btnFAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFAlumnoActionPerformed
@@ -142,6 +148,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ConsultasPorAlumno fi=new ConsultasPorAlumno();
         crearVentanas(fi);
     }//GEN-LAST:event_btnAlumXMateriasActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+
+      
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAlumXMaterias;
