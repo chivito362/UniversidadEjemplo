@@ -11,18 +11,17 @@ import universidadejemplo.AccesoADatos.MateriaData;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Materia;
 
-
 public class ConsultasPorAlumno extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo= new DefaultTableModel();
-    
+
+    private DefaultTableModel modelo = new DefaultTableModel();
+
     public ConsultasPorAlumno() {
         initComponents();
         modelarTabla();
         cargarCombo();
-        
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -113,13 +112,12 @@ private DefaultTableModel modelo= new DefaultTableModel();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-Materia id = new Materia();
+    Materia id = new Materia();
     private void jComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboActionPerformed
         id = (Materia) jCombo.getSelectedItem();
+        llenarTabla();
     }//GEN-LAST:event_jComboActionPerformed
 
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Materia> jCombo;
@@ -130,29 +128,38 @@ Materia id = new Materia();
     private javax.swing.JTable jT;
     private javax.swing.JButton jbSalir;
     // End of variables declaration//GEN-END:variables
-private void cargarCombo(){
-    MateriaData materia= new MateriaData();
-    List <Materia> materias= materia.listarMaterias();
-    for (Materia materia1 : materias) {
-        jCombo.addItem(materia1);
+private void cargarCombo() {
+        MateriaData materia = new MateriaData();
+        List<Materia> materias = materia.listarMaterias();
+        for (Materia materia1 : materias) {
+            jCombo.addItem(materia1);
+        }
     }
+
+    private void modelarTabla() {
+
+        modelo.addColumn("IDalumno");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Nombre");
+        jT.setModel(modelo);
+
     }
-private void modelarTabla(){
+
+    private void llenarTabla() {
+        limpiarTabla();
+        InscripcionData data = new InscripcionData();
+        //AlumnoData alu = new AlumnoData();
+        List<Alumno> alumnos = data.obtenerAlumnosxMateria(id.getIdMateria());
+        for (Alumno alumno : alumnos) {
+            modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+        }
+    }
     
-   modelo.addColumn("IDalumno");
-   modelo.addColumn("DNI");
-   modelo.addColumn("Apellido");
-   modelo.addColumn("Nombre");
-   jT.setModel(modelo);
-   
-}
-private void llenarTabla(){
-InscripcionData data=new InscripcionData();    
-AlumnoData alu= new AlumnoData();
-List<Alumno> alumnos=data.obtenerAlumnosxMateria(id.getIdMateria());
-    for (Alumno alumno : alumnos) {
-       modelo.addRow(new Object []{alumno.getIdAlumno(),alumno.getDni(),alumno.getApellido(),alumno.getNombre()});
+    private void limpiarTabla(){
+        for (int i = modelo.getRowCount()-1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
     }
-}
 
 }
