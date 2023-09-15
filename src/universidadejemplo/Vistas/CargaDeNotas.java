@@ -61,6 +61,11 @@ public class CargaDeNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(Tabla);
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
 
@@ -149,6 +154,14 @@ public class CargaDeNotas extends javax.swing.JInternalFrame {
             Tabla.setModel(model);
        }
     }//GEN-LAST:event_cbAlumnosItemStateChanged
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        InscripcionData ins=new InscripcionData();
+        Alumno alumno=(Alumno)cbAlumnos.getSelectedItem();
+        int idmateria=Integer.valueOf(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
+        double nota=Integer.valueOf(Tabla.getValueAt(Tabla.getSelectedRow(), 2).toString());
+        ins.actualizarNota(alumno.getIdAlumno(), idmateria, nota);
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;

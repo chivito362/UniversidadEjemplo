@@ -157,7 +157,7 @@ public class InscripcionData {
     }
     
     public void actualizarNota(int idAlumno,int idMateria,double nota){
-        String sql="UPDATE incripcion SET nota=? WHERE idAlumno=? AND idMateria=?";
+        String sql="UPDATE inscripcion SET nota=? WHERE idAlumno=? AND idMateria=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setDouble(1, nota);
