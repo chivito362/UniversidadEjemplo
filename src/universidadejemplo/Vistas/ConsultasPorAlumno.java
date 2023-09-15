@@ -113,20 +113,12 @@ private DefaultTableModel modelo= new DefaultTableModel();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-Materia id=new Materia();
+Materia id = new Materia();
     private void jComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboActionPerformed
-id=(Materia)jCombo.getSelectedItem();
+        id = (Materia) jCombo.getSelectedItem();
     }//GEN-LAST:event_jComboActionPerformed
 
-   
-    public static void main(String args[]) {
-  
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultasPorAlumno().setVisible(true);
-            }
-        });
-    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
