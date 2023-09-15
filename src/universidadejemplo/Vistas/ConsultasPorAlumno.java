@@ -58,6 +58,11 @@ public class ConsultasPorAlumno extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jT);
 
         jbSalir.setText("salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,6 +122,11 @@ public class ConsultasPorAlumno extends javax.swing.JInternalFrame {
         id = (Materia) jCombo.getSelectedItem();
         llenarTabla();
     }//GEN-LAST:event_jComboActionPerformed
+
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
