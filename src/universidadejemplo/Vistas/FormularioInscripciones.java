@@ -26,8 +26,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         initComponents();
         armarCabeceraTabla();
         cargarComboBox ();
-        grupoBotones.add(MatInscriptas);
-        grupoBotones.add(MatnoInscriptas);
+        grupoBotones.add(rbtn);
+        grupoBotones.add(rbno);
     }
 
 
@@ -211,9 +211,11 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         insdata.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 1).toString()));
     }//GEN-LAST:event_btnAnularInscripcionActionPerformed
           
-    }//GEN-LAST:event_cbAlumnosActionPerformed
+                                             
 
     private void rbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActionPerformed
+        limpiarTabla();
+        
         InscripcionData data=new InscripcionData();
         Alumno alu=new Alumno();
         alu=(Alumno) cbAlumnos.getSelectedItem();
@@ -226,6 +228,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rbtnActionPerformed
 
     private void rbnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnoActionPerformed
+        limpiarTabla();
+        
         InscripcionData data=new InscripcionData();
         Alumno alu=new Alumno();
         alu=(Alumno) cbAlumnos.getSelectedItem();
@@ -235,7 +239,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         for (Materia materia : materias) {
             modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
     }//GEN-LAST:event_rbnoActionPerformed
-
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnularInscripcion;
@@ -270,6 +274,11 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         }
     }
     
+    private void limpiarTabla(){
+        for (int i = modelo.getRowCount()-1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
     
 }
 
