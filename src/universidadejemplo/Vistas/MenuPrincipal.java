@@ -107,6 +107,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -126,7 +131,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManejoInscripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManejoInscripActionPerformed
-   FormularioInscripciones fi = new FormularioInscripciones();
+    FormularioInscripciones fi = new FormularioInscripciones();
         crearVentanas(fi);
     }//GEN-LAST:event_btnManejoInscripActionPerformed
 
@@ -150,9 +155,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlumXMateriasActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-
+        
       
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAlumXMaterias;

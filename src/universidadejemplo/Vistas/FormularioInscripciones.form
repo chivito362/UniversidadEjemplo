@@ -71,7 +71,7 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="jCListadoAlumnos" min="-2" pref="238" max="-2" attributes="0"/>
+                      <Component id="cbAlumnos" min="-2" pref="238" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -95,7 +95,7 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCListadoAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -131,14 +131,14 @@
         <Property name="text" type="java.lang.String" value="Seleccione un Alumno:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCListadoAlumnos">
+    <Component class="javax.swing.JComboBox" name="cbAlumnos">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCListadoAlumnosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbAlumnosActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Alumno&gt;"/>
@@ -187,11 +187,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Inscribirse"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInscribirseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAnularInscripcion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Anular Inscripci&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnularInscripcionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalirFInscripciones">
       <Properties>

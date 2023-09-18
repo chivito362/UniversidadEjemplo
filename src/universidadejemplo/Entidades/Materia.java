@@ -18,6 +18,12 @@ public class Materia {
     public Materia() {
     }
 
+    public Materia(int idMateria) {
+        this.idMateria = idMateria;
+    }
+    
+    
+    
     public Materia(String nombre, int anioMateria, boolean estado) {
         this.nombre = nombre;
         this.anioMateria = anioMateria;

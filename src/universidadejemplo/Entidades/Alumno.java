@@ -96,14 +96,5 @@ public class Alumno {
     }
     
     
-//    private void crearVentanas(JInternalFrame fi){         
-//        escritorio.removeAll();
-//        escritorio.repaint();
-//        fi.setVisible(true);
-//        fi.setSize(escritorio.getWidth(), escritorio.getHeight());
-//        escritorio.add(fi);
-//        escritorio.moveToFront(fi);
-//}
-
     
 }
