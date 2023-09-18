@@ -106,6 +106,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTablaMaterias);
 
         btnInscribirse.setText("Inscribirse");
+        btnInscribirse.setEnabled(false);
         btnInscribirse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInscribirseActionPerformed(evt);
@@ -113,6 +114,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         });
 
         btnAnularInscripcion.setText("Anular Inscripción");
+        btnAnularInscripcion.setEnabled(false);
         btnAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnularInscripcionActionPerformed(evt);
@@ -226,11 +228,15 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                                              
 
     private void rbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActionPerformed
+       btnAnularInscripcion.isEnabled();
+       btnInscribirse.isEnabled();
         cargarCursadas();
     }//GEN-LAST:event_rbtnActionPerformed
 
     private void rbnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnoActionPerformed
-         cargarNoCursadas();
+       btnAnularInscripcion.isEnabled();
+       btnInscribirse.isEnabled();
+       cargarNoCursadas();
     }//GEN-LAST:event_rbnoActionPerformed
 
 
@@ -255,7 +261,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         
         modelo.addColumn("ID");
         modelo.addColumn("Materia");
-        modelo.addColumn("Nota");
+        modelo.addColumn("Año");
         jTablaMaterias.setModel(modelo);
     }
     
