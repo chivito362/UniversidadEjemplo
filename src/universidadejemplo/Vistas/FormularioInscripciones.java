@@ -255,7 +255,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         
         modelo.addColumn("ID");
         modelo.addColumn("Materia");
-        modelo.addColumn("Nota");
+        modelo.addColumn("Año");
         jTablaMaterias.setModel(modelo);
     }
     

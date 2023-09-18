@@ -35,7 +35,7 @@ public class InscripcionData {
             stm.executeUpdate();
             ResultSet rs=stm.getGeneratedKeys();
             if(rs.next()){
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                insc.setIdInscripcion(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Guardado con exito");
             }
             stm.close();
