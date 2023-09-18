@@ -1,6 +1,7 @@
 package universidadejemplo.Vistas;
 
 import java.awt.PopupMenu;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
@@ -19,9 +20,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         public boolean isCellEditable(int f, int c) {
         return false;  
     }
-        
-            
 
+ 
     public FormularioInscripciones() {
         initComponents();
         armarCabeceraTabla();
@@ -31,6 +31,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
     }
 
 
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,8 +42,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         cbAlumnos = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        MatInscriptas = new javax.swing.JRadioButton();
-        MatnoInscriptas = new javax.swing.JRadioButton();
+        rbtn = new javax.swing.JRadioButton();
+        rbno = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablaMaterias = new javax.swing.JTable();
         btnInscribirse = new javax.swing.JButton();
@@ -76,9 +77,19 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Listado de Materias");
 
-        MatInscriptas.setText("Materias Inscriptas");
+        rbtn.setText("Materias Inscriptas");
+        rbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnActionPerformed(evt);
+            }
+        });
 
-        MatnoInscriptas.setText("Materias no Inscriptas");
+        rbno.setText("Materias no Inscriptas");
+        rbno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbnoActionPerformed(evt);
+            }
+        });
 
         jTablaMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,9 +134,9 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(MatInscriptas)
+                        .addComponent(rbtn)
                         .addGap(47, 47, 47)
-                        .addComponent(MatnoInscriptas)
+                        .addComponent(rbno)
                         .addGap(82, 82, 82))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,8 +171,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MatInscriptas)
-                    .addComponent(MatnoInscriptas))
+                    .addComponent(rbtn)
+                    .addComponent(rbno))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
@@ -199,11 +210,34 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         
         insdata.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 1).toString()));
     }//GEN-LAST:event_btnAnularInscripcionActionPerformed
+          
+    }//GEN-LAST:event_cbAlumnosActionPerformed
+
+    private void rbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActionPerformed
+        InscripcionData data=new InscripcionData();
+        Alumno alu=new Alumno();
+        alu=(Alumno) cbAlumnos.getSelectedItem();
+        
+        List<Materia> materias=new ArrayList<>();
+        materias=data.obtenerMateriasCursadas(alu.getIdAlumno());
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+        }
+    }//GEN-LAST:event_rbtnActionPerformed
+
+    private void rbnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnoActionPerformed
+        InscripcionData data=new InscripcionData();
+        Alumno alu=new Alumno();
+        alu=(Alumno) cbAlumnos.getSelectedItem();
+        
+        List<Materia> materias=new ArrayList<>();
+        materias=data.obtenerMateriasNOCursadas(alu.getIdAlumno());
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+    }//GEN-LAST:event_rbnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton MatInscriptas;
-    private javax.swing.JRadioButton MatnoInscriptas;
     private javax.swing.JButton btnAnularInscripcion;
     private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnSalirFInscripciones;
@@ -215,6 +249,8 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablaMaterias;
     private javax.swing.JTable jTable1;
+    private javax.swing.JRadioButton rbno;
+    private javax.swing.JRadioButton rbtn;
     // End of variables declaration//GEN-END:variables
 
     
