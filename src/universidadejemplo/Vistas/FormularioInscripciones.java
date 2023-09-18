@@ -228,14 +228,14 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                                              
 
     private void rbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActionPerformed
-       btnAnularInscripcion.isEnabled();
-       btnInscribirse.isEnabled();
+       btnAnularInscripcion.setEnabled(true);
+       btnInscribirse.setEnabled(false);
         cargarCursadas();
     }//GEN-LAST:event_rbtnActionPerformed
 
     private void rbnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnoActionPerformed
-       btnAnularInscripcion.isEnabled();
-       btnInscribirse.isEnabled();
+       btnAnularInscripcion.setEnabled(false);
+       btnInscribirse.setEnabled(true);
        cargarNoCursadas();
     }//GEN-LAST:event_rbnoActionPerformed
 
