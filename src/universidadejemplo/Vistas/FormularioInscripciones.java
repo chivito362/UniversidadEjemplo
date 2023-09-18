@@ -4,6 +4,7 @@ import java.awt.PopupMenu;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.AccesoADatos.InscripcionData;
@@ -191,55 +192,47 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbAlumnosActionPerformed
 
     private void btnInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirseActionPerformed
-        Alumno alu=(Alumno)cbAlumnos.getSelectedItem();
+        if(jTablaMaterias.getSelectedRow()>-1){
+            Alumno alu=(Alumno)cbAlumnos.getSelectedItem();
         
-        Materia materia=new Materia(Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 1).toString()));
+        Materia materia=new Materia(Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 0).toString()));
         
         Inscripcion ins=new Inscripcion(alu, materia);
         
         InscripcionData insdata=new InscripcionData();
         
         insdata.GuardarInscripcion(ins);
+         cargarNoCursadas();
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una materia para inscribirse");
+        }
         
     }//GEN-LAST:event_btnInscribirseActionPerformed
 
     private void btnAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnularInscripcionActionPerformed
+       if(jTablaMaterias.getSelectedRow()>-1){
+        
         Alumno alu=(Alumno)cbAlumnos.getSelectedItem();
         
         InscripcionData insdata=new InscripcionData();
         
-        insdata.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 1).toString()));
+        insdata.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), Integer.parseInt(jTablaMaterias.getValueAt(jTablaMaterias.getSelectedRow(), 0).toString()));
+        cargarCursadas();
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una materia para anular la inscripcion");
+        }
     }//GEN-LAST:event_btnAnularInscripcionActionPerformed
           
                                              
 
     private void rbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActionPerformed
-        limpiarTabla();
-        
-        InscripcionData data=new InscripcionData();
-        Alumno alu=new Alumno();
-        alu=(Alumno) cbAlumnos.getSelectedItem();
-        
-        List<Materia> materias=new ArrayList<>();
-        materias=data.obtenerMateriasCursadas(alu.getIdAlumno());
-        for (Materia materia : materias) {
-            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
-        }
+        cargarCursadas();
     }//GEN-LAST:event_rbtnActionPerformed
 
     private void rbnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbnoActionPerformed
-        limpiarTabla();
-        
-        InscripcionData data=new InscripcionData();
-        Alumno alu=new Alumno();
-        alu=(Alumno) cbAlumnos.getSelectedItem();
-        
-        List<Materia> materias=new ArrayList<>();
-        materias=data.obtenerMateriasNOCursadas(alu.getIdAlumno());
-        for (Materia materia : materias) {
-            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+         cargarNoCursadas();
     }//GEN-LAST:event_rbnoActionPerformed
-}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnularInscripcion;
@@ -280,6 +273,32 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         }
     }
     
+    private void cargarCursadas(){
+    limpiarTabla();
+        
+        InscripcionData data=new InscripcionData();
+        Alumno alu=new Alumno();
+        alu=(Alumno) cbAlumnos.getSelectedItem();
+        
+        List<Materia> materias=new ArrayList<>();
+        materias=data.obtenerMateriasCursadas(alu.getIdAlumno());
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+        }
+}
+    private void cargarNoCursadas(){
+        limpiarTabla();
+
+        InscripcionData data = new InscripcionData();
+        Alumno alu = new Alumno();
+        alu = (Alumno) cbAlumnos.getSelectedItem();
+
+        List<Materia> materias = new ArrayList<>();
+        materias = data.obtenerMateriasNOCursadas(alu.getIdAlumno());
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{materia.getIdMateria(), materia.getNombre(), materia.getAnioMateria()});
+        }
+    }
 }
 
 
