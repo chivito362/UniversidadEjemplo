@@ -125,7 +125,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jcalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnSalir))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +183,8 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if(!txtNombre.getText().equals("") && !txtApellido.getText().equals("") && !txtDni.getText().equals("")){
+            try{
         String nombre,apellido;
         LocalDate fecha;
         boolean estado;
@@ -190,6 +192,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         nombre=txtNombre.getText();
         apellido=txtApellido.getText();
         dni=Integer.valueOf(txtDni.getText());
+        
         fecha=formatoFecha();
         
         if(cbEstado.getSelectedItem().toString().equalsIgnoreCase("activo")){
@@ -205,7 +208,15 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         alumno.setFechaNacimiento(fecha);
         alumno.setEstado(estado);
         aludata.guardarAlumno(alumno);
-        
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "El campo DNI debe contener solo Numeros");
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null, "El campo Fecha no puede estar vacio");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Los campos deben estar completos");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

@@ -1,6 +1,7 @@
 package universidadejemplo.Vistas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.AccesoADatos.InscripcionData;
@@ -68,6 +69,11 @@ public class CargaDeNotas extends javax.swing.JInternalFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         cbAlumnos.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -156,12 +162,20 @@ public class CargaDeNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbAlumnosItemStateChanged
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+         if(Tabla.getSelectedRow()>-1){
         InscripcionData ins=new InscripcionData();
         Alumno alumno=(Alumno)cbAlumnos.getSelectedItem();
         int idmateria=Integer.valueOf(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
         double nota=Integer.valueOf(Tabla.getValueAt(Tabla.getSelectedRow(), 2).toString());
         ins.actualizarNota(alumno.getIdAlumno(), idmateria, nota);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una materia para actualizar la nota");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;

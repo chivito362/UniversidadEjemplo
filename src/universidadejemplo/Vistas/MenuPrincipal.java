@@ -58,11 +58,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Materia");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
 
         btnFmateria.setText("Formulario Materia");
         btnFmateria.addActionListener(new java.awt.event.ActionListener() {
@@ -107,12 +102,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
             }
         });
         jMenuBar1.add(jMenu5);
+        jMenu5.getAccessibleContext().setAccessibleDescription("");
 
         setJMenuBar(jMenuBar1);
 
@@ -154,14 +156,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         crearVentanas(fi);
     }//GEN-LAST:event_btnAlumXMateriasActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        
-      
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
+        
     }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+     System.exit(0);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAlumXMaterias;
@@ -182,7 +184,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         fi.setVisible(true);
-        fi.setSize(escritorio.getWidth(), escritorio.getHeight());
+        escritorio.setSize(fi.getWidth(), fi.getHeight());
         escritorio.add(fi);
         escritorio.moveToFront(fi);
 }

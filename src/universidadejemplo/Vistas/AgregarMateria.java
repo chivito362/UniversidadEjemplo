@@ -155,6 +155,8 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if(!txtAño.getText().equals("") && !txtMateria.getText().equals("")) {
+              try{
         String nombre,año;
         boolean estado=jRadio.isSelected();
         nombre=txtMateria.getText();
@@ -166,22 +168,37 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         txtMateria.setText("");
         txtAño.setText("");
         jRadio.setSelected(false);
+         }catch(NumberFormatException e){
+                  JOptionPane.showMessageDialog(null, "El campo año solo debe tener Numeros");
+              }
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos deben estar cargados");
+        }
   
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-           String nombre,año;
-        boolean estado=jRadio.isSelected();
-        nombre=txtMateria.getText();
-        año=txtAño.getText();
-        int año1=Integer.parseInt(año);
-        Materia materia=new Materia(nombre,año1,estado);
-        MateriaData mat=new MateriaData();
-        mat.modificarMateria(materia);
-        txtMateria.setText("");
-        txtAño.setText("");
-        jRadio.setSelected(false);
+          if (!txtAño.getText().equals("") && !txtMateria.getText().equals("")) {
+              try{
+            String nombre, año;
+            boolean estado = jRadio.isSelected();
+            nombre = txtMateria.getText();
+            año = txtAño.getText();
+            int año1 = Integer.parseInt(año);
+            Materia materia = new Materia(nombre, año1, estado);
+            MateriaData mat = new MateriaData();
+            mat.modificarMateria(materia);
+            txtMateria.setText("");
+            txtAño.setText("");
+            jRadio.setSelected(false);
+              }catch(NumberFormatException e){
+                  JOptionPane.showMessageDialog(null, "El campo año solo debe tener Numeros");
+              }
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos deben estar cargados");
+        }
+        
        
         
     }//GEN-LAST:event_btnActualizarActionPerformed

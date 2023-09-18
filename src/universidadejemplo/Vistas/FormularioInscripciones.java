@@ -122,6 +122,11 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         });
 
         btnSalirFInscripciones.setText("Salir");
+        btnSalirFInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirFInscripcionesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,6 +252,10 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null, "No se encontraron datos");
       }
     }//GEN-LAST:event_rbnoActionPerformed
+
+    private void btnSalirFInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirFInscripcionesActionPerformed
+            this.dispose();
+    }//GEN-LAST:event_btnSalirFInscripcionesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
