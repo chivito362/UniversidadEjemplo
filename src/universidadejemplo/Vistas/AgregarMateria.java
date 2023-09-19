@@ -36,8 +36,6 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         jRadio = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Materia");
 
@@ -208,7 +206,9 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
+        BuscadorMateria view=new BuscadorMateria(this);
+        view.setVisible(true);
+        view.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -222,8 +222,8 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton jRadio;
-    private javax.swing.JTextField txtAño;
-    private javax.swing.JTextField txtMateria;
+    public javax.swing.JRadioButton jRadio;
+    public javax.swing.JTextField txtAño;
+    public javax.swing.JTextField txtMateria;
     // End of variables declaration//GEN-END:variables
 }
