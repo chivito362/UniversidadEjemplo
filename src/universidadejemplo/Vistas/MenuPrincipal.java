@@ -108,11 +108,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jMenu5MouseClicked(evt);
             }
         });
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
-            }
-        });
         jMenuBar1.add(jMenu5);
         jMenu5.getAccessibleContext().setAccessibleDescription("");
 
@@ -155,11 +150,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ConsultasPorAlumno fi=new ConsultasPorAlumno();
         crearVentanas(fi);
     }//GEN-LAST:event_btnAlumXMateriasActionPerformed
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        System.exit(0);
-        
-    }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
      System.exit(0);
