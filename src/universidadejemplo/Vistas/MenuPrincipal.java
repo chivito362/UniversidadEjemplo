@@ -6,12 +6,18 @@
 package universidadejemplo.Vistas;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
-   
-
+    public boolean logged;
+    
     public MenuPrincipal() {
         initComponents();
+        logged=false;
+        jMenu1.setEnabled(false);
+        jMenu2.setEnabled(false);
+        jMenu3.setEnabled(false);
+        jMenu4.setEnabled(false);
         
     }
 
@@ -31,6 +37,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         btnAlumXMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 255));
@@ -135,6 +142,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
         jMenu5.getAccessibleContext().setAccessibleDescription("");
 
+        jMenu6.setText("Login");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,18 +194,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
      System.exit(0);
     }//GEN-LAST:event_jMenu5MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        if(jMenu6.getText().equalsIgnoreCase("Login")){
+        View login =new View(this);
+        crearVentanas(login);
+        }else{
+            logged=false;
+            jMenu1.setEnabled(false);
+            jMenu2.setEnabled(false);
+            jMenu3.setEnabled(false);
+            jMenu4.setEnabled(false);
+            jMenu6.setText("Login");
+        }
+    }//GEN-LAST:event_jMenu6MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAlumXMaterias;
     private javax.swing.JMenuItem btnFAlumno;
     private javax.swing.JMenuItem btnFmateria;
     private javax.swing.JMenuItem btnManejoInscrip;
-    private javax.swing.JMenuItem btnManipulacionNotas;
+    public javax.swing.JMenuItem btnManipulacionNotas;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    public javax.swing.JMenu jMenu1;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu3;
+    public javax.swing.JMenu jMenu4;
+    public javax.swing.JMenu jMenu5;
+    public javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 

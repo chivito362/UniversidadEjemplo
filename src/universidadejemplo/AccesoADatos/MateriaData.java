@@ -23,7 +23,7 @@ public class MateriaData {
   private Connection con = null;
 
     public MateriaData() {
-        con=Conexion.getConexion();
+        con=Conexion.getConexion("universidadulp");
     }
   
     public void guardarMateria(Materia materia){

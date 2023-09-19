@@ -22,7 +22,7 @@ public class InscripcionData {
     private AlumnoData aluData;
 
     public InscripcionData() {
-        con=Conexion.getConexion();
+        con=Conexion.getConexion("universidadulp");
     }
     
     public void GuardarInscripcion(Inscripcion insc){
