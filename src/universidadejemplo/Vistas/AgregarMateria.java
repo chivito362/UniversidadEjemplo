@@ -46,6 +46,14 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         jLabel4.setText("Estado");
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
+            }
+        });
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -53,6 +61,15 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         });
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseExited(evt);
+            }
+        });
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
@@ -60,6 +77,14 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -84,34 +109,34 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         cbEstado.setLayout(cbEstadoLayout);
         cbEstadoLayout.setHorizontalGroup(
             cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cbEstadoLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadio)
-                    .addGroup(cbEstadoLayout.createSequentialGroup()
-                        .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(txtMateria)
-                            .addComponent(txtAño, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscar)))
-                .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cbEstadoLayout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
-                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cbEstadoLayout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(72, 72, 72)
-                        .addComponent(btnActualizar)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cbEstadoLayout.createSequentialGroup()
-                        .addComponent(btnSalir)
-                        .addGap(20, 20, 20))))
+                .addComponent(btnAgregar)
+                .addGap(72, 72, 72)
+                .addComponent(btnActualizar)
+                .addGap(82, 82, 82))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cbEstadoLayout.createSequentialGroup()
+                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(cbEstadoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbEstadoLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadio)
+                            .addGroup(cbEstadoLayout.createSequentialGroup()
+                                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtMateria)
+                                    .addComponent(txtAño, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar)))))
+                .addGap(19, 19, 19))
         );
         cbEstadoLayout.setVerticalGroup(
             cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,18 +158,13 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
                 .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jRadio))
-                .addGap(11, 11, 11)
-                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cbEstadoLayout.createSequentialGroup()
-                        .addGap(59, 100, Short.MAX_VALUE)
-                        .addComponent(btnSalir)
-                        .addContainerGap())
-                    .addGroup(cbEstadoLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnActualizar)
-                            .addComponent(btnAgregar))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(49, 49, 49)
+                .addGroup(cbEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnAgregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(btnSalir)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,6 +240,30 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         view.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+    btnAgregar.setSize(83, 31);       
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        btnAgregar.setSize(80, 28);
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    private void btnActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseEntered
+        btnActualizar.setSize(83, 31);
+    }//GEN-LAST:event_btnActualizarMouseEntered
+
+    private void btnActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseExited
+        btnActualizar.setSize(80, 28);
+    }//GEN-LAST:event_btnActualizarMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+       btnSalir.setSize(84, 32);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setSize(80, 28);
+    }//GEN-LAST:event_btnSalirMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
