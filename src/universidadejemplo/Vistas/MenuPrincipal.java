@@ -42,10 +42,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+            .addGap(0, 404, Short.MAX_VALUE)
         );
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/alumno28.png"))); // NOI18N
         jMenu1.setText("Alumno");
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu1.setPreferredSize(new java.awt.Dimension(80, 80));
+        jMenu1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnFAlumno.setText("Formulario Alumno ");
         btnFAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +61,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/materia28.png"))); // NOI18N
         jMenu2.setText("Materia");
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu2.setPreferredSize(new java.awt.Dimension(49, 80));
+        jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnFmateria.setText("Formulario Materia");
         btnFmateria.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +77,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/administracion28.png"))); // NOI18N
         jMenu3.setText("Administración");
+        jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnManejoInscrip.setText("Manejo de Inscripciones");
         btnManejoInscrip.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +100,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta28.png"))); // NOI18N
         jMenu4.setText("Consultas");
+        jMenu4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu4.setPreferredSize(new java.awt.Dimension(66, 99));
+        jMenu4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta28.png"))); // NOI18N
+        jMenu4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta48.png"))); // NOI18N
+        jMenu4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnAlumXMaterias.setText("Alumnos por Materia");
         btnAlumXMaterias.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +118,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida 28.png"))); // NOI18N
         jMenu5.setText("Salir");
         jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu5.setPreferredSize(new java.awt.Dimension(66, 99));
+        jMenu5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida 28.png"))); // NOI18N
+        jMenu5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida48.png"))); // NOI18N
+        jMenu5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu5MouseClicked(evt);
