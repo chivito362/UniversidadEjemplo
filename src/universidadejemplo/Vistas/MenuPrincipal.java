@@ -48,7 +48,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/alumno28.png"))); // NOI18N
         jMenu1.setText("Alumno");
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu1.setPreferredSize(new java.awt.Dimension(80, 80));
+        jMenu1.setPreferredSize(new java.awt.Dimension(91, 80));
         jMenu1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnFAlumno.setText("Formulario Alumno ");
@@ -64,7 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/materia28.png"))); // NOI18N
         jMenu2.setText("Materia");
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu2.setPreferredSize(new java.awt.Dimension(49, 80));
+        jMenu2.setPreferredSize(new java.awt.Dimension(91, 80));
         jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnFmateria.setText("Formulario Materia");
@@ -103,7 +103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta28.png"))); // NOI18N
         jMenu4.setText("Consultas");
         jMenu4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu4.setPreferredSize(new java.awt.Dimension(66, 99));
+        jMenu4.setPreferredSize(new java.awt.Dimension(91, 99));
         jMenu4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta28.png"))); // NOI18N
         jMenu4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta48.png"))); // NOI18N
         jMenu4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -122,7 +122,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Salir");
         jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenu5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu5.setPreferredSize(new java.awt.Dimension(66, 99));
+        jMenu5.setPreferredSize(new java.awt.Dimension(91, 99));
         jMenu5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida 28.png"))); // NOI18N
         jMenu5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida48.png"))); // NOI18N
         jMenu5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
