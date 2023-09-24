@@ -229,6 +229,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jMenu3.setEnabled(false);
             jMenu4.setEnabled(false);
             jMenu6.setText("Login");
+            JInternalFrame[] ventanas=Escritorio.getAllFrames();
+            for (JInternalFrame ventana : ventanas) {
+                ventana.dispose();
+            }
         }
     }//GEN-LAST:event_jMenu6MouseClicked
 
