@@ -36,6 +36,8 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         jRadio = new javax.swing.JRadioButton();
 
+        cbEstado.setBackground(new java.awt.Color(0, 153, 204));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Materia");
 
