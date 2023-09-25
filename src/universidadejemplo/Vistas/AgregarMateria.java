@@ -1,11 +1,13 @@
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import universidadejemplo.AccesoADatos.Conexion;
 import universidadejemplo.AccesoADatos.MateriaData;
 import universidadejemplo.Entidades.Materia;
@@ -244,27 +246,27 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
-    btnAgregar.setSize(83, 31);       
+        btnAgregar.setBackground(Color.white);
     }//GEN-LAST:event_btnAgregarMouseEntered
 
     private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
-        btnAgregar.setSize(80, 28);
+        btnAgregar.setBackground(UIManager.getColor("Button.background"));
     }//GEN-LAST:event_btnAgregarMouseExited
 
     private void btnActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseEntered
-        btnActualizar.setSize(83, 31);
+        btnActualizar.setBackground(Color.white);
     }//GEN-LAST:event_btnActualizarMouseEntered
 
     private void btnActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseExited
-        btnActualizar.setSize(80, 28);
+       btnActualizar.setBackground(UIManager.getColor("Button.background"));
     }//GEN-LAST:event_btnActualizarMouseExited
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
-       btnSalir.setSize(84, 32);
+        btnSalir.setBackground(Color.white);
     }//GEN-LAST:event_btnSalirMouseEntered
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
-        btnSalir.setSize(80, 28);
+        btnSalir.setBackground(UIManager.getColor("Button.background"));
     }//GEN-LAST:event_btnSalirMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
