@@ -5,14 +5,17 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     public boolean logged;
-    
+    Fondos fondo=new Fondos();
     public MenuPrincipal() {
         initComponents();
+        fondo.setBounds(0, 0, 800, 600);
+        Escritorio.add(fondo);
         logged=false;
         jMenu1.setEnabled(false);
         jMenu2.setEnabled(false);
@@ -25,8 +28,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -44,26 +45,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 255));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
-        jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo-azul-degradado_23-2149346090.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(-10, -10, 570, 430);
-
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 426, Short.MAX_VALUE)
         );
-
-        jPanel1.add(Escritorio);
-        Escritorio.setBounds(10, 40, 60, 60);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -176,15 +167,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(Escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(Escritorio)
         );
 
         pack();
@@ -243,7 +230,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnFmateria;
     private javax.swing.JMenuItem btnManejoInscrip;
     public javax.swing.JMenuItem btnManipulacionNotas;
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JMenu jMenu1;
     public javax.swing.JMenu jMenu2;
     public javax.swing.JMenu jMenu3;
@@ -251,7 +237,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenu jMenu5;
     public javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     private void crearVentanas(JInternalFrame fi){      
@@ -260,6 +245,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         fi.setVisible(true);
         Escritorio.setSize(fi.getWidth(), fi.getHeight());
         Escritorio.add(fi);
+        Escritorio.add(fondo);
         Escritorio.moveToFront(fi);
 }
 }
