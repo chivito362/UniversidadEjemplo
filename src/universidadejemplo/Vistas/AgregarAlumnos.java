@@ -252,6 +252,8 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         }catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "Solo puede Ingresar numeros en el campo DNI");
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "El campo DNI esta Vacio!");
         }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
