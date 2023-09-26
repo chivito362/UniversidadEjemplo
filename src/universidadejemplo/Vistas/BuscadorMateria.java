@@ -1,6 +1,8 @@
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
 import java.util.List;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.MateriaData;
 import universidadejemplo.Entidades.Materia;
@@ -62,6 +64,14 @@ public class BuscadorMateria extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TablaM);
 
         btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSeleccionarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSeleccionarMouseExited(evt);
+            }
+        });
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarActionPerformed(evt);
@@ -129,6 +139,14 @@ public class BuscadorMateria extends javax.swing.JFrame {
         this.dispose();
        }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    private void btnSeleccionarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseEntered
+        btnSeleccionar.setBackground(Color.white);
+    }//GEN-LAST:event_btnSeleccionarMouseEntered
+
+    private void btnSeleccionarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseExited
+        btnSeleccionar.setBackground(UIManager.getColor("Button.background"));
+    }//GEN-LAST:event_btnSeleccionarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

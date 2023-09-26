@@ -1,9 +1,11 @@
 
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.AccesoADatos.InscripcionData;
@@ -60,6 +62,14 @@ public class ConsultasPorAlumno extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jT);
 
         jbSalir.setText("salir");
+        jbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbSalirMouseExited(evt);
+            }
+        });
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -130,6 +140,14 @@ public class ConsultasPorAlumno extends javax.swing.JInternalFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSalirMouseEntered
+        jbSalir.setBackground(Color.white);
+    }//GEN-LAST:event_jbSalirMouseEntered
+
+    private void jbSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSalirMouseExited
+        jbSalir.setBackground(UIManager.getColor("Button.background"));
+    }//GEN-LAST:event_jbSalirMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

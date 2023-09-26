@@ -1,10 +1,12 @@
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
 import java.awt.PopupMenu;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.AccesoADatos.InscripcionData;
@@ -49,7 +51,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
         jTablaMaterias = new javax.swing.JTable();
         btnInscribirse = new javax.swing.JButton();
         btnAnularInscripcion = new javax.swing.JButton();
-        btnSalirFInscripciones = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,10 +123,18 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSalirFInscripciones.setText("Salir");
-        btnSalirFInscripciones.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirFInscripcionesActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -164,7 +174,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAnularInscripcion)
                 .addGap(70, 70, 70)
-                .addComponent(btnSalirFInscripciones)
+                .addComponent(btnSalir)
                 .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
@@ -187,7 +197,7 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInscribirse)
                     .addComponent(btnAnularInscripcion)
-                    .addComponent(btnSalirFInscripciones))
+                    .addComponent(btnSalir))
                 .addGap(18, 18, 18))
         );
 
@@ -253,15 +263,23 @@ public class FormularioInscripciones extends javax.swing.JInternalFrame {
       }
     }//GEN-LAST:event_rbnoActionPerformed
 
-    private void btnSalirFInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirFInscripcionesActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
             this.dispose();
-    }//GEN-LAST:event_btnSalirFInscripcionesActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(UIManager.getColor("Button.background"));
+    }//GEN-LAST:event_btnSalirMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnularInscripcion;
     private javax.swing.JButton btnInscribirse;
-    private javax.swing.JButton btnSalirFInscripciones;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<Alumno> cbAlumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

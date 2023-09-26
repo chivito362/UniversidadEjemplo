@@ -4,7 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/MenuPrincipal.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/AgregarAlumnos.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/BuscadorMateria.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/ConsultasPorAlumno.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/FormularioInscripciones.java</file>
             <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/AccesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/CargaDeNotas.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/AgregarMateria.java</file>
+            <file>file:/C:/Users/usuario/Documents/GitHub/UniversidadEjemplo/src/universidadejemplo/Vistas/View.java</file>
         </group>
     </open-files>
 </project-private>
