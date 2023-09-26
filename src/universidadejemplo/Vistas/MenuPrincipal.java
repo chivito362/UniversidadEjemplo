@@ -49,18 +49,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 546, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 456, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 153, 204));
-
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/alumno28.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Alumno32.png"))); // NOI18N
         jMenu1.setText("    Alumno");
-        jMenu1.setAlignmentY(0.8F);
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu1.setPreferredSize(new java.awt.Dimension(91, 10));
         jMenu1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/alumno48.png"))); // NOI18N
@@ -152,7 +149,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
         jMenu5.getAccessibleContext().setAccessibleDescription("");
 
-        jMenu6.setBackground(new java.awt.Color(0, 204, 204));
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/login_gov_icon_146024.png"))); // NOI18N
         jMenu6.setText("Login");
         jMenu6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -172,7 +168,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
