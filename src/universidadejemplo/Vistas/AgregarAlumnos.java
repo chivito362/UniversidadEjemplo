@@ -19,6 +19,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     public AgregarAlumnos() {
         initComponents();
         cargarCb();
+        txtId.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,6 +43,9 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jcalendario = new com.toedter.calendar.JDateChooser();
+        btnModificar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -96,6 +100,15 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("id");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,20 +134,25 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEliminar)))
+                                .addComponent(btnEliminar))
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnGuardar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnModificar))
                             .addComponent(jLabel1)
                             .addComponent(txtDni)
                             .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                             .addComponent(txtNombre))
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jcalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,7 +160,11 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -169,7 +191,8 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnEliminar)
-                    .addComponent(btnGuardar))
+                    .addComponent(btnGuardar)
+                    .addComponent(btnModificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -187,7 +210,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -240,6 +263,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
             AlumnoData aludata = new AlumnoData();
             Alumno alumno = aludata.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText()));
             if (alumno != null) {
+                txtId.setText(String.valueOf(alumno.getIdAlumno()));
                 txtApellido.setText(alumno.getApellido());
                 txtNombre.setText(alumno.getNombre());
                 LocalDate fecha = alumno.getFechaNacimiento();
@@ -283,11 +307,38 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         camposVacios();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+          if(!txtNombre.getText().equals("") && !txtApellido.getText().equals("") && !txtDni.getText().equals("")&& !txtId.getText().equals("")){
+              AlumnoData alu=new AlumnoData();
+              String nombre,apellido;
+              int dni,idalu;
+              boolean estado;
+              LocalDate fecha;
+              idalu= Integer.parseInt(txtId.getText());
+              nombre=txtNombre.getText();
+              apellido=txtApellido.getText();
+              dni= Integer.parseInt(txtDni.getText());
+              if (cbEstado.getSelectedItem().toString().equalsIgnoreCase("activo")) {
+                  estado = true;
+              } else {
+                  estado = false;
+        }
+              fecha=formatoFecha();
+              
+              
+              Alumno alumno=new Alumno(idalu, dni, apellido, nombre, fecha, estado);
+              alu.modificarAlumno(alumno);
+          }else{
+              JOptionPane.showMessageDialog(null, "los campos deben estar cargados");
+          }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbEstado;
@@ -297,10 +348,12 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser jcalendario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 

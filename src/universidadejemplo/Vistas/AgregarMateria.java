@@ -1,21 +1,15 @@
 package universidadejemplo.Vistas;
 
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import universidadejemplo.AccesoADatos.Conexion;
 import universidadejemplo.AccesoADatos.MateriaData;
 import universidadejemplo.Entidades.Materia;
 
 
 public class AgregarMateria extends javax.swing.JInternalFrame {
 
-    
+    int idmat;
     public AgregarMateria() {
         initComponents();
     }
@@ -217,7 +211,7 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
             nombre = txtMateria.getText();
             año = txtAño.getText();
             int año1 = Integer.parseInt(año);
-            Materia materia = new Materia(nombre, año1, estado);
+            Materia materia = new Materia(idmat,nombre, año1, estado);
             MateriaData mat = new MateriaData();
             mat.modificarMateria(materia);
             txtMateria.setText("");

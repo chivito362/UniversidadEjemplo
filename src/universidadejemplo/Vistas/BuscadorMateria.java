@@ -130,14 +130,15 @@ public class BuscadorMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMateriaKeyReleased
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        if(TablaM.getSelectedRow()>-1){
-        int idmateria=Integer.parseInt(TablaM.getValueAt(TablaM.getSelectedRow(), 0).toString());
-        Materia materia=mat.buscarMateria(idmateria);
-       ven.txtMateria.setText(materia.getNombre());
-       ven.txtAño.setText(String.valueOf(materia.getAnioMateria()));
-       ven.jRadio.setSelected(true);
-        this.dispose();
-       }
+        if (TablaM.getSelectedRow() > -1) {
+            int idmateria = Integer.parseInt(TablaM.getValueAt(TablaM.getSelectedRow(), 0).toString());
+            Materia materia = mat.buscarMateria(idmateria);
+            ven.txtMateria.setText(materia.getNombre());
+            ven.txtAño.setText(String.valueOf(materia.getAnioMateria()));
+            ven.idmat = materia.getIdMateria();
+            ven.jRadio.setSelected(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnSeleccionarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseEntered
